@@ -1,0 +1,24 @@
+﻿<Window x:Class="ZarplataSpravki.AddEmployee" ResizeMode="NoResize" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZarplataSpravki"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Добавить сотрудника" Height="400" Width="629" FontFamily="Gadugi">
+
+    <Grid Background="White">
+        <StackPanel Margin="30">
+            <ComboBox x:Name="AddEmployeeCombobox" materialDesign:HintAssist.Hint="Учреждение где работет сотрудник" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontSize="13" Cursor="Arrow" FontWeight="Bold" />
+            <TextBox x:Name="_FIO" materialDesign:HintAssist.Hint="ФИО Сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="13" Cursor="Arrow" FontWeight="Bold"/>
+            <TextBox x:Name="_Post" materialDesign:HintAssist.Hint="Должность сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="13" Cursor="Arrow" FontWeight="Bold"/>
+            <TextBox x:Name="_Oklad" materialDesign:HintAssist.Hint="Оклад сотрудника" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="13" FontWeight="Bold"/>
+            <TextBox x:Name="_Neoblag_Summa" materialDesign:HintAssist.Hint="Необлагаемая сумма" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="13" Cursor="Arrow" FontWeight="Bold"/>
+            <Grid Height="127">
+                <Button Click="Click_AddEmployee" VerticalAlignment="Center" HorizontalAlignment="Left" Width="150" Cursor="Hand"  Content="Добавить"/>
+                <Button Click="Click_CloseEmployee" VerticalAlignment="Center" HorizontalAlignment="Right" Width="150" Cursor="Hand"  Content="Отмена"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
