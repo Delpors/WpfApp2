@@ -19,7 +19,7 @@ namespace ZarplataSpravki
 
             }            
         }
-        public void DeleteDataEmployee(int ValueColumn)
+        public bool DeleteDataEmployee(int ValueColumn)
         {
             AppContext appContext = new AppContext();
 
@@ -29,7 +29,10 @@ namespace ZarplataSpravki
 
                 appContext.SaveChanges();
 
+                return true;
+
             }
+            return false;
         }
     }
 }

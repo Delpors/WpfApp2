@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -16,20 +14,20 @@ namespace ZarplataSpravki
 
     {
         readonly AppContext appContext;
-
+        
+        public Employee employee { get; set; }
         public string ComboBoxSelInst;
-
-        public ObservableCollection<Employee> EmployeeCollection;
+        public ObservableCollection<Employee> EmployeeCollection { get; set; }
 
         public Employees()
         {
             InitializeComponent();
 
+            DataContext = this;
             appContext = new AppContext();
 
             EmployeeCollection = new ObservableCollection<Employee>(appContext.Employees.ToList());
-            EmploeesDataGrid.ItemsSource = EmployeeCollection;
-
+            
             EmployeeCombobox.ItemsSource = new ObservableCollection<Institut>(appContext.Instituts.ToList());
             EmployeeCombobox.DisplayMemberPath = "Institut_name";
         }
@@ -49,8 +47,8 @@ namespace ZarplataSpravki
             button.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             button.ShowDialog();
 
-            EmployeeCollection = new ObservableCollection<Employee>(appContext.Employees.ToList());
-            EmploeesDataGrid.ItemsSource = EmployeeCollection;
+            EmploeesDataGrid.ItemsSource=new ObservableCollection<Employee>(appContext.Employees.ToList());  
+
         }
         
         private void Button_Click_EditEmployee(object sender, RoutedEventArgs e)
@@ -68,7 +66,6 @@ namespace ZarplataSpravki
             }
 
             EmployeeCollection=new ObservableCollection<Employee>(appContext.Employees.ToList());
-            EmploeesDataGrid.ItemsSource = EmployeeCollection;
         }
 
         private void Button_Click_DelEmployee(object sender, RoutedEventArgs e)
@@ -80,13 +77,9 @@ namespace ZarplataSpravki
 
             if (employeeDelete != null)
             {
-                deletData.DeleteDataEmployee(employeeDelete.id);
+                if(deletData.DeleteDataEmployee(employeeDelete.id))
+                    EmploeesDataGrid.ItemsSource = new ObservableCollection<Employee>(appContext.Employees.ToList());
             }
-
-            //Обновляет страницу
-            EmployeeCollection = new ObservableCollection<Employee>(appContext.Employees.ToList());
-            EmploeesDataGrid.ItemsSource = EmployeeCollection;
-
         }
     }
 }

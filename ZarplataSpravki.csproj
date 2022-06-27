@@ -102,6 +102,7 @@
     <Compile Include="institution.xaml.cs">
       <DependentUpon>institution.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OnNotifyPropertyChanged.cs" />
     <Compile Include="StartPage.xaml.cs">
       <DependentUpon>StartPage.xaml</DependentUpon>
     </Compile>

@@ -6,11 +6,16 @@
       xmlns:local="clr-namespace:ZarplataSpravki"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1000" d:MinWidth="1000"
-      Title="Emploees">
+      Title="Emploees"
+      >
 
     <Grid Background="#E3E3E3	" IsManipulationEnabled="True">
         <ScrollViewer>
-            <DataGrid RowBackground="LightGray" AlternatingRowBackground="White" IsReadOnly="True" x:Name="EmploeesDataGrid" AutoGenerateColumns="False" FontSize="15" FontFamily="Montserrat Medium" Margin="10,69,0,0" HorizontalGridLinesBrush="#FF0C0B0B" VerticalGridLinesBrush="#FF0C0B0B" GridLinesVisibility="All" >
+            <DataGrid ItemsSource="{Binding EmployeeCollection}" RowBackground="LightGray" AlternatingRowBackground="White" 
+                      IsReadOnly="True" x:Name="EmploeesDataGrid" AutoGenerateColumns="False" 
+                      FontSize="15" FontFamily="Montserrat Medium" Margin="10,69,0,0" 
+                      HorizontalGridLinesBrush="#FF0C0B0B" VerticalGridLinesBrush="#FF0C0B0B" 
+                      GridLinesVisibility="All" >
                 <DataGrid.CellStyle>
                     <Style/>
                 </DataGrid.CellStyle>

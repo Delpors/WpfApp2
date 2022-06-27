@@ -12,7 +12,6 @@ namespace ZarplataSpravki
     {
         AppContext appContext = new AppContext();
         Employee editInstitut = new Employee();
-        Employees employees = new Employees();
 
         public int dataGridColumn;
         public EditRowEmployeeDB()

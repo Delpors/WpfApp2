@@ -15,7 +15,9 @@ namespace ZarplataSpravki
 
         Employee employee;
 
-        Institut instSelEmployee;
+        Institut instSelEmployee; 
+
+        Employees employees=new Employees();    
 
         public AddEmployee()
         {
@@ -40,8 +42,7 @@ namespace ZarplataSpravki
                 Neoblag_Summa = Convert.ToInt32(_Neoblag_Summa.Text)
             };
 
-            employee = new Employee(employee.FIO, employee.Post, employee.Oklad, employee.Neoblag_Summa, instSelEmployee);
-
+            employee = new Employee(employee.FIO, employee.Post, employee.Oklad, employee.Neoblag_Summa, instSelEmployee);          
         }
 
         private void Click_AddEmployee(object sender, RoutedEventArgs e)
@@ -54,7 +55,7 @@ namespace ZarplataSpravki
 
                     appContext.Employees.Add(employee);
                     appContext.SaveChanges();
-
+   
                     Close();
                 }
                 catch (Exception)
