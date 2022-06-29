@@ -14,17 +14,17 @@ namespace ZarplataSpravki
 
     {
         readonly AppContext appContext;
-        
-        public Employee employee { get; set; }
+
+        public Employee employee;
         public string ComboBoxSelInst;
         public ObservableCollection<Employee> EmployeeCollection { get; set; }
 
         public Employees()
         {
             InitializeComponent();
-
-            DataContext = this;
+            
             appContext = new AppContext();
+            DataContext = this;
 
             EmployeeCollection = new ObservableCollection<Employee>(appContext.Employees.ToList());
             
@@ -47,7 +47,7 @@ namespace ZarplataSpravki
             button.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             button.ShowDialog();
 
-            EmploeesDataGrid.ItemsSource=new ObservableCollection<Employee>(appContext.Employees.ToList());  
+             EmployeeCollection=new ObservableCollection<Employee>(appContext.Employees.ToList());  
 
         }
         
@@ -78,7 +78,7 @@ namespace ZarplataSpravki
             if (employeeDelete != null)
             {
                 if(deletData.DeleteDataEmployee(employeeDelete.id))
-                    EmploeesDataGrid.ItemsSource = new ObservableCollection<Employee>(appContext.Employees.ToList());
+                    EmployeeCollection.Remove(employeeDelete);
             }
         }
     }

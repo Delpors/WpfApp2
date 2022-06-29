@@ -17,8 +17,6 @@ namespace ZarplataSpravki
 
         Institut instSelEmployee; 
 
-        Employees employees=new Employees();    
-
         public AddEmployee()
         {
             InitializeComponent();
@@ -55,12 +53,11 @@ namespace ZarplataSpravki
 
                     appContext.Employees.Add(employee);
                     appContext.SaveChanges();
-   
+
                     Close();
                 }
                 catch (Exception)
                 {
-
                     MessageBox.Show("Введены некорректные данные", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
